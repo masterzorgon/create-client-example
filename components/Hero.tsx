@@ -79,7 +79,7 @@ export function Hero() {
                     <div className="absolute inset-0 rounded-md bg-transparent group-hover:bg-[#e3572e]/50 duration-200 transition-all ease-in-out blur-md px-5.5 py-2.5" />
   
                     <a
-                      href="https://www.youtube.com/watch?v=8azRe9PRLg0&list=PLMZny7wGLM6w4t7pMGATxFTjjMduTsEiF"
+                      href="https://docs.marginfi.com"
                       rel="noreferrer noopener"
                       target="_blank"
                       className="relative rounded-md bg-[#e3572e] px-3.5 py-2.5 group-hover:px-4 group-hover:py-3 text-sm font-semibold text-white group-hover:shadow-lg duration-200 transition-all ease-in-out border border-transparent"
