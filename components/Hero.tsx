@@ -1,21 +1,50 @@
 "use client";
 
 import * as React from "react";
-
 import { useWallet } from "@solana/wallet-adapter-react";
+import { MarginfiClient, getConfig } from '@mrgnlabs/marginfi-client-v2';
+import { Connection } from "@solana/web3.js";
+
 
 export function Hero() {
     const [showTrue, setShowTrue] = React.useState(false);
 
-    const { publicKey } = useWallet();
+    const { publicKey, signTransaction, signAllTransactions, signMessage } = useWallet();
+    const connection = new Connection("mainnet-beta", "confirmed");
+
+    const initMarginfiClient = async () => {
+      if (
+        !publicKey ||
+        !signTransaction ||
+        !signAllTransactions ||
+        !signMessage
+      ) { return }
+
+      const config = getConfig('production');
+      const client = await MarginfiClient.fetch(
+        config,
+        {
+          publicKey,
+          signTransaction,
+          signAllTransactions,
+          signMessage
+        },
+        connection
+      );
+
+      console.log("marginfi client initialized");
+      console.log(client.banks);
+    }
 
     React.useEffect(() => {
         if (publicKey) {
-            setShowTrue(true)
+            setShowTrue(true);
         } else {
-            setShowTrue(false)
+            setShowTrue(false);
         }
-    }, [publicKey]);
+
+        initMarginfiClient()
+    }, [publicKey, signTransaction, signAllTransactions, signMessage, connection]);
 
     return (
         <div className="relative isolate px-6lg:px-8">

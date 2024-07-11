@@ -15,12 +15,9 @@ export function NavBar() {
     <Navbar className="w-screen bg-transparent">
       <Image src={heliusLogo} alt="Solana Logo" width={40} className="" />
       <NavbarContent justify="end">
-        <Tooltip placeholder="bottom" content="Devnet Only">
+        <Tooltip placeholder="bottom" content="Connect Wallet">
           <NavbarItem>
-            {/* This page is a client component because of the WalletMultiButton component. If you want to make the navbar a SSR component, refacto the button component */}
-            {/* <div className='bg-black'>
               <WalletMultiButton />
-            </div> */}
           </NavbarItem>
         </Tooltip>
       </NavbarContent>

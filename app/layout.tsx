@@ -1,7 +1,9 @@
 import { Providers } from "./providers";
 import type { Metadata } from "next";
 import { NavBar } from "@/components/NavBar";
+
 import "@/styles/globals.css";
+require('@solana/wallet-adapter-react-ui/styles.css');
 
 export const metadata: Metadata = {
   title: "Wallet Adapter For Next.js 14 Tutorial by Helius",
@@ -17,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <div className="absolute">
+          <div className="">
             <NavBar />
           </div>
           {children}
